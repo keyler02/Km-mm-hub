@@ -126,15 +126,15 @@ local function RunScriptAboveOrEqual10()
             if prompt and prompt.Enabled then
                 fireproximityprompt(prompt)
             end
-            task.wait(0.1)
+            task.wait(0.01)
         end
     end))
 
-    -- THREAD 2: Remote (tetap 0.1)
+    -- THREAD 2: Remote (tetap 0.01)
     table.insert(runningThreads, task.spawn(function()
         while AutoFarmEnabled do
             MachineRemote:FireServer()
-            task.wait(0.05)
+            task.wait(0.02)
         end
     end))
 end
@@ -284,7 +284,7 @@ local function RunScriptAbove10()
     table.insert(runningThreads, task.spawn(function()
         while AutoFarmEnabled do
             MachineRemote:FireServer()
-            task.wait(0.05)
+            task.wait(0.02)
         end
     end))
 end
@@ -343,7 +343,7 @@ task.spawn(function()
                 :WaitForChild("RebirthEvent")
                 :FireServer()
         end
-        task.wait(0.05)
+        task.wait(0.02)
     end
 end)
 
