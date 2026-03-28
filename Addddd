@@ -96,7 +96,7 @@ local function RunScriptBelow10()
     table.insert(runningThreads, task.spawn(function()
         while AutoFarmEnabled do
             MachineRemote:FireServer()
-            task.wait(0.1)
+            task.wait(0.01)
         end
     end))
 end
@@ -195,7 +195,7 @@ end
 -- UTIL CEPAT: AMBIL PROMPT
 -- =========================
 local function CollectPrompts(folder, positions)
-    local EPSILON = 0.01
+    local EPSILON = 0.001
     local prompts = {}
 
     for _, obj in ipairs(folder:GetDescendants()) do
@@ -238,7 +238,7 @@ local function RunScriptBelowOrEqual10()
             if prompt and prompt.Enabled then
                 fireproximityprompt(prompt)
             end
-            task.wait(0.01)
+            task.wait(0.001)
         end
     end))
 
@@ -246,7 +246,7 @@ local function RunScriptBelowOrEqual10()
     table.insert(runningThreads, task.spawn(function()
         while AutoFarmEnabled do
             MachineRemote:FireServer()
-            task.wait(0.01)
+            task.wait(0.001)
         end
     end))
 end
@@ -276,7 +276,7 @@ local function RunScriptAbove10()
             if prompt and prompt.Enabled then
                 fireproximityprompt(prompt)
             end
-            task.wait(0.1)
+            task.wait(0.001)
         end
     end))
 
@@ -284,7 +284,7 @@ local function RunScriptAbove10()
     table.insert(runningThreads, task.spawn(function()
         while AutoFarmEnabled do
             MachineRemote:FireServer()
-            task.wait(0.01)
+            task.wait(0.001)
         end
     end))
 end
@@ -343,7 +343,7 @@ task.spawn(function()
                 :WaitForChild("RebirthEvent")
                 :FireServer()
         end
-        task.wait(0.01)
+        task.wait(0.001)
     end
 end)
 
